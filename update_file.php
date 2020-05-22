@@ -38,12 +38,10 @@ if (!empty($_POST['submit'])) {
   $note = $_POST['note'];
 
   $source['note'] = $note;
-  echo"<pre>";
-  print_r($source);
-  echo"</pre>";
-  // save('file_info', $source);
 
-  // to("manage.php");
+  save('file_info', $source);
+
+  to("manage.php");
 }
 ?>
 <img src="<?= $row['path']; ?>" style="width:200px;">
