@@ -10,18 +10,10 @@
 </head>
 
 <body>
-	<a href="upload.php">
-		<div class="types">表單檔案上傳</div>
-	</a>
-	<a href="manage.php">
-		<div class="types">檔案管理</div>
-	</a>
-	<a href="text-import.php">
-		<div class="types">文字檔案處理</div>
-	</a>
-	<a href="image.php">
-		<div class="types">圖形處理</div>
-	</a>
+	<div class="center"><a href="upload.php" class="types">表單檔案上傳</a></div> 
+	<div class="center"><a href="manage.php" class="types">檔案管理</a></div> 
+	<div class="center"><a href="text-import.php" class="types">文字檔案處理</a></div> 
+	<div class="center"><a href="image.php" class="types">圖形處理</a></div> 
 </body>
 
 </html>

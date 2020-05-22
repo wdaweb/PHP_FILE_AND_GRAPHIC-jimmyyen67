@@ -14,7 +14,7 @@ if ($_FILES['img']['error'] == 0) {
       $sub = '.gif';
   }
 
-  $name = date('Ymdhis') . $sub;
+  $name = date('YmdHis') . $sub;
 
   move_uploaded_file($_FILES['img']['tmp_name'],"img/".$name); 
 

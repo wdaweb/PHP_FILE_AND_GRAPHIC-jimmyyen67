@@ -34,7 +34,7 @@ function find($table, $arg)
   } else {
     $sql = $sql . " where id='" . $arg . "'";
   }
-  return $pdo->query($sql)->fetch();
+  return $pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
 }
 
 function nums($table, ...$arg)

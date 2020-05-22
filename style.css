@@ -7,6 +7,14 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+.center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mb-3 {
+  margin-bottom: 3vh;
+}
 .types {
   width: 400px;
   margin: 20px auto;
@@ -30,11 +38,22 @@
   font-size: 32px;
 }
 table {
+  margin: auto;
   border-collapse: collapse;
 }
 table tr td,
-table tr th {
+th {
+  height: 110px;
   text-align: center;
   border: 1px solid #ccc;
   padding: 15px;
+}
+.btn {
+  background: #ddd;
+  border-style: hidden;
+  padding: 6px;
+}
+.btn:hover {
+  background: #222;
+  color: white;
 }

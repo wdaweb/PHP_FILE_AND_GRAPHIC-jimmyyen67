@@ -22,11 +22,13 @@ include_once "base.php";
 <body>
     <h1 class="header">檔案管理練習</h1>
     <!----建立上傳檔案表單及相關的檔案資訊存入資料表機制----->
-    <form action="save_file.php" method="post" enctype="multipart/form-data">
-        <input type="file" name="img" id="img"><br>
-        <input type="text" name="note"><br>
-        <input type="submit" value="上傳">
-    </form>
+    <div class="center mb-3">
+        <form action="save_file.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="img"><br>
+            <input type="text" name="note">
+            <input type="submit" value="上傳">
+        </form>
+    </div>
 
     <!----透過資料表來顯示檔案的資訊，並可對檔案執行更新或刪除的工作----->
     <table>
@@ -37,6 +39,7 @@ include_once "base.php";
         <th>類別</th>
         <th>說明</th>
         <th>上傳時間</th>
+        <th>操作</th>
         </tr>
         <?php
         $all = all('file_info');
@@ -49,6 +52,10 @@ include_once "base.php";
                 <td><?= $row['type'] ?></td>
                 <td><?= $row['note'] ?></td>
                 <td><?= $row['upload_time'] ?></td>
+                <td>
+                    <a href="update_file.php?id=<?= $row['id'] ?>"><button class="btn">更新</button></a>
+                    <a href="delete_chk.php?id=<?= $row['id'] ?>"><button class="btn">刪除</button></a>
+                </td>
             </tr>
         <?php
         } ?>
@@ -57,4 +64,5 @@ include_once "base.php";
 
 
 </body>
+
 </html>
