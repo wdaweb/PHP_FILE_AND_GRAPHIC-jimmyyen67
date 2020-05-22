@@ -1,7 +1,7 @@
 <?php
 $dsn = "mysql:host=localhost;charset=utf8;dbname=files";
 $pdo = new PDO($dsn, "root", "");
-date_default_timezone_set("Asia/Taipe");
+date_default_timezone_set("Asia/Taipei");
 
 
 function all($table, ...$arg)
@@ -53,6 +53,8 @@ function nums($table, ...$arg)
   }
   return $pdo->query($sql)->fetchColumn();
 }
+
+
 function save($table, $arg)
 {
   global $pdo;
@@ -67,12 +69,13 @@ function save($table, $arg)
     $sql = "update $table set " . implode(",", $tmp) . " where id='" . $arg['id'] . "'";
   } else {
     //insert
-    $sql = "insert into $table (`" . implode("`,`", array_keys($arg)) . "`) values('" . implode("','") . "')";
+    $sql = "insert into $table (`" . implode("`,`", array_keys($arg)) . "`) values('" . implode("','", $arg) . "')";
   }
-
-
   return $pdo->exec($sql);
 }
+
+
+
 function del($table, $arg)
 {
   global $pdo;
