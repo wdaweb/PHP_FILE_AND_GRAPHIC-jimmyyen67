@@ -1,4 +1,5 @@
 <?php
+
 /****
  * 1.建立資料庫及資料表
  * 2.建立上傳檔案機制
@@ -12,6 +13,7 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,15 +21,45 @@
     <title>文字檔案匯入</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<h1 class="header">文字檔案匯入練習</h1>
-<!---建立檔案上傳機制--->
+    <h1 class="header">文字檔案匯入練習</h1>
+    <!---建立檔案上傳機制--->
+    <div>
+        <form action="parse_file.php" method="post" enctype="multipart/form-data">
+            <input type="file" name="doc">
+            <input type="submit" valiue="匯入">
+        </form>
+    </div>
 
-
-
-<!----讀出匯入完成的資料----->
-
-
+    <!----讀出匯入完成的資料----->
+    <?php
+    include_once "base.php";
+    $todo = all('todo_list');
+    ?>
+    <table>
+        <tr>
+            <td>id</td>
+            <td>subject</td>
+            <td>description</td>
+            <td>create_date</td>
+            <td>due_date</td>
+        </tr>
+        <?php
+        foreach ($todo as $t) {
+        ?>
+            <tr>
+                <td><?= $t['id'] ?></td>
+                <td><?= $t['subject'] ?></td>
+                <td><?= $t['description'] ?></td>
+                <td><?= $t['create_date'] ?></td>
+                <td><?= $t['due_date'] ?></td>
+            </tr>
+        <?php
+        }
+        ?>
+    </table>
 
 </body>
+
 </html>
